@@ -83,7 +83,7 @@ export default function BookingPage() {
 
     return (
         <section id="booking" className="py-20 bg-[#FFFFFF]">
-            <div className="max-w-[93rem] mx-auto">
+            <div className="max-w-[85rem] mx-auto">
             {/* <div className="container mx-auto px-4 max-w-4xl"> */}
                 {/* Header */}
                 <motion.div

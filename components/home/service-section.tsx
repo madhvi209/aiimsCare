@@ -167,7 +167,7 @@ const ServiceCard = ({ title, description, image, isDark = false, index }: {
 const ServicesPage = () => {
     return (
         <main className="py-16 px-4 bg-gray-100">
-            <div className="max-w-[93rem] mx-auto">
+            <div className="max-w-[85rem] mx-auto">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

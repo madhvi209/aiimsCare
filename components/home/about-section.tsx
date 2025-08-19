@@ -43,7 +43,7 @@ export default function AboutPage() {
     return (
         <main>
             <section id="about" className="py-20 bg-secondary">
-                <div className="max-w-[85rem] mx-auto">
+                <div className="max-w-[80rem] mx-auto">
                 {/* <div className="max-w-7xl mx-auto px-6 lg:px-2"> */}
                     <div className="grid lg:grid-cols-2 items-center">
                         {/* Left Half: Text + Corporate Card */}

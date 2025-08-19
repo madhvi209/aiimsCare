@@ -51,7 +51,7 @@ const features = [
 const WhyChooseUsPage = () => {
     return (
         <main className="py-20 px-4 bg-gradient-to-br from-[#174F6F] to-[#4E80AB]">
-            <div className="max-w-[93rem] mx-auto">
+            <div className="max-w-[85rem] mx-auto">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
