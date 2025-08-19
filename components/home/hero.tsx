@@ -1,15 +1,11 @@
-// app/page.tsx
-
 "use client";
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart, Stethoscope,User, Ambulance } from "lucide-react";
+import { ArrowRight, Heart, Stethoscope, User, Ambulance } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function HomePage() {
-
-
     const trustIndicator = [
         { icon: Stethoscope, title: "Certified Nurses", value: "500+", color: "from-blue-800 to-blue-900" },
         { icon: User, title: "Patients Served", value: "10k+", color: "from-blue-800 to-blue-900" },
@@ -18,32 +14,17 @@ export default function HomePage() {
 
     return (
         <section className="relative py-20 lg:py-24 bg-gradient-to-br from-blue-50 to-white overflow-hidden mt-16">
-
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-6 lg:px-12"> {/* Increased left/right margin */}
                 {/* Main grid: left text + right image */}
                 <div className="grid lg:grid-cols-2 gap-16 items-stretch relative">
 
-                    {/* Left column: Text + Button + Professional Nurse Card + Floating Icons */}
+                    {/* Left column */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         className="relative flex flex-col justify-between"
                     >
-                        {/* Floating icons inside left column */}
-                        {/* {floatingIcons.map(({ Icon, delay, x, y }, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 0.1, scale: 1 }}
-                                transition={{ delay, duration: 1, repeat: Infinity, repeatType: "reverse", repeatDelay: 2 }}
-                                className="absolute text-primary"
-                                style={{ left: x, top: y }}
-                            >
-                                <Icon className="w-6 h-6 md:w-10 md:h-10" />
-                            </motion.div>
-                        ))} */}
-
                         {/* Floating heart icon */}
                         <motion.div
                             animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
@@ -51,7 +32,6 @@ export default function HomePage() {
                             className="absolute -top-4 -left-4 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center"
                         >
                             <Stethoscope className="w-8 h-8 text-[#001055]" />
-                            {/* <Heart className="w-8 h-8 text-[#E10C06]" /> */}
                         </motion.div>
 
                         {/* Text + Buttons */}
@@ -127,7 +107,7 @@ export default function HomePage() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Right column: Image + Trust Indicators */}
+                    {/* Right column */}
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
