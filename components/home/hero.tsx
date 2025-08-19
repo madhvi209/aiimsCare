@@ -4,15 +4,11 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart, Stethoscope, BriefcaseMedical, SquareActivity, User, Ambulance } from "lucide-react";
+import { ArrowRight, Heart, Stethoscope,User, Ambulance } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function HomePage() {
-    const floatingIcons = [
-        { Icon: Stethoscope, delay: 0, x: "5%", y: "20%" },
-        { Icon: BriefcaseMedical, delay: 0.5, x: "15%", y: "50%" },
-        { Icon: SquareActivity, delay: 1, x: "2%", y: "70%" },
-    ];
+
 
     const trustIndicator = [
         { icon: Stethoscope, title: "Certified Nurses", value: "500+", color: "from-blue-800 to-blue-900" },
