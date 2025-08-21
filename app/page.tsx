@@ -4,9 +4,9 @@ import ServiceSection from "@/components/home/service-section";
 import WhyChooseUs from "@/components/home/why-choose-us";
 import BookingSection from "@/components/home/booking-section";
 import FAQSection from "@/components/home/faq-section";
-// import ProductCategories from "../components/home/product-categories";
-// import ContactUs from "../components/home/contactUs-section";
-// import TestimonialsSection from "@/components/home/testimonial-section";
+import CareSection from "@/components/home/care-section";
+import Contact from "../components/home/contact-section";
+import TestimonialsSection from "@/components/home/testimonials-section";
 
 
 export default function Home() {
@@ -18,9 +18,10 @@ export default function Home() {
       <ServiceSection />
       <WhyChooseUs />
       <BookingSection />
-      <FAQSection/>
-      {/* <TestimonialsSection />
-      <ContactUs /> */}
+      <FAQSection />
+      <CareSection />
+      <TestimonialsSection />
+      <Contact />
     </div>
   );
 }

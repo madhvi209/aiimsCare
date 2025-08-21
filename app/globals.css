@@ -3,6 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 @theme inline {
   --primary: #020652; 
   --primary-light: 225 100% 25%;/* #001055 - Deep medical blue */

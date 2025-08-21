@@ -10,13 +10,14 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navItems = [
-        { name: "Home", href: "#home" },
-        { name: "Services", href: "#services" },
+        { name: "Home", href: "/" },
+        { name: "Services", href: "#services" }, // 👈 change this
         { name: "About", href: "#about" },
         { name: "Testimonials", href: "#testimonials" },
         { name: "FAQ", href: "#faq" },
         { name: "Contact", href: "#contact" },
     ];
+
 
     return (
         <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-md z-50">
@@ -80,7 +81,7 @@ const Header = () => {
                     <div className="hidden lg:flex items-center gap-4">
                         <Button
                             variant="outline"
-                            className="border-[#001055] text-[#001055] bg-[#001055] text-white hover:bg-[#fff] hover:text-[#020652] transition inline-flex items-center gap-2"
+                            className="border-[#001055]  bg-[#001055] text-white hover:bg-[#fff] hover:text-[#020652] transition inline-flex items-center gap-2"
                         >
                             <img
                                 src="/images/vector.webp"

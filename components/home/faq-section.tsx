@@ -61,7 +61,7 @@ const FAQSection = () => {
     ];
 
     return (
-        <section className="bg-[#001055] text-white min-h-screen w-full mb-20 ">
+        <section id="faq" className="bg-[#001055] text-white min-h-screen w-full ">
                 {/* Header Section with First FAQ */}
                 <div className="py-16 px-4 bg-[#001055]">
                     <div className="container mx-auto max-w-4xl">
