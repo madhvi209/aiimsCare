@@ -91,7 +91,7 @@ export default function HomePage() {
                                             <Heart className="w-6 h-6 text-white" />
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-[#001055]">Professional Nurse</h3>
+                                            <h3 className="font-semibold text-[#001055]">Government Certified Nurse & Medical Caretaker</h3>
                                             <p className="text-gray-500 text-sm">On the way to your home</p>
                                         </div>
                                     </div>

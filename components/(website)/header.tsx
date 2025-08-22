@@ -18,7 +18,6 @@ const Header = () => {
         { name: "Contact", href: "#contact" },
     ];
 
-
     return (
         <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-md z-50">
             {/* Top contact bar */}
@@ -31,7 +30,7 @@ const Header = () => {
                         </div>
                         <div className="flex items-center gap-2">
                             <MapPin className="w-4 h-4" />
-                            <span>Available across India</span>
+                            <span>Available across 15+ States of India</span>
                         </div>
                     </div>
                     <div className="hidden md:block">
@@ -45,11 +44,11 @@ const Header = () => {
             {/* Main navigation */}
             <nav className="container mx-auto px-4 py-4">
                 <div className="flex justify-between items-center">
-                    {/* Logo */}
+                    {/* Logo and Institute Name */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="flex items-center gap-3"
+                        className="flex flex-col gap-1"
                     >
                         <Link href="#home" className="flex items-center gap-2">
                             <img
@@ -58,6 +57,9 @@ const Header = () => {
                                 className="w-30 h-15 object-contain rounded-lg"
                             />
                         </Link>
+                        <span className="text-[#001055] text-start text-xs sm:text-sm font-semibold mt-1 ml-1">
+                            ACTIVE INSTITUTE OF INTENSIVE MEDICAL SERVICES PRIVATE LIMITED
+                        </span>
                     </motion.div>
 
                     {/* Desktop Navigation */}
@@ -88,16 +90,12 @@ const Header = () => {
                                 alt="Vector"
                                 className="object-contain w-6 h-6"
                             />
-
-
                             Talk to Expert
                         </Button>
 
                         <Button className="bg-[#ffff] text-[#020652] border-1 border-[#020652] hover:text-[#fff] hover:bg-[#020652] hover:border-[#fff] transition focus:outline focus:outline-[#001055]">
                             Book Care
                         </Button>
-
-
                     </div>
 
                     {/* Mobile menu button */}

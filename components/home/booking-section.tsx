@@ -7,21 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue
-} from "@/components/ui/select";
-import {
-    ChevronLeft,
-    ChevronRight,
-    Check,
-    Calendar,
-    MapPin,
-    User
-} from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ChevronLeft, ChevronRight, Check, Calendar, MapPin, User} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function BookingPage() {
@@ -37,6 +24,8 @@ export default function BookingPage() {
     });
 
     const serviceTypes = [
+        "Certified Nurse",
+        "GDA(General Duty Assistant)",
         "Injection Administration",
         "IV Cannulation & Fluid Therapy",
         "Wound & Diabetic Care",
@@ -76,15 +65,31 @@ export default function BookingPage() {
         setFormData(prev => ({ ...prev, [field]: value }));
     };
 
-    const handleSubmit = () => {
-        console.log("Form submitted:", formData);
-        alert("✅ Booking submitted! We’ll contact you shortly.");
+    const handleSubmit = async () => {
+        try {
+            const res = await fetch("/api/sendBooking", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await res.json();
+            if (result.success) {
+                alert("Booking submitted! We’ll contact you shortly.");
+            } else {
+                alert("Failed to send booking. Please try again.");
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Something went wrong.");
+        }
     };
+
 
     return (
         <section id="booking" className="py-20 bg-[#FFFFFF]">
-            <div className="max-w-[85rem] mx-auto">
-            {/* <div className="container mx-auto px-4 max-w-4xl"> */}
+            <div className="max-w-[85rem] mx-auto px-4">
+                {/* <div className="container mx-auto px-4 max-w-4xl"> */}
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -104,24 +109,24 @@ export default function BookingPage() {
                 {/* Progress Steps */}
                 <div className="mb-12">
                     {/* Step Circles */}
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col gap-6 sm:flex-row sm:justify-between sm:items-center">
                         {steps.map((step, index) => (
                             <div key={step.number} className="flex items-center">
                                 <div
-                                    className={`flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 ${currentStep >= step.number
+                                    className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 transition-all duration-300 ${currentStep >= step.number
                                         ? "bg-[#001055] border-[#001055] text-[#FFFFFF]"
                                         : "border-[#8B95A1] text-[#8B95A1]"
                                         }`}
                                 >
                                     {currentStep > step.number ? (
-                                        <Check className="w-6 h-6" />
+                                        <Check className="w-5 h-5 sm:w-6 sm:h-6" />
                                     ) : (
-                                        <step.icon className="w-6 h-6" />
+                                        <step.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                                     )}
                                 </div>
                                 {index < steps.length - 1 && (
                                     <div
-                                        className={`w-20 md:w-32 h-0.5 mx-4 transition-all duration-300 ${currentStep > step.number
+                                        className={`hidden sm:block w-20 md:w-32 h-0.5 mx-4 transition-all duration-300 ${currentStep > step.number
                                             ? "bg-[#001055]"
                                             : "bg-gray-300"
                                             }`}
@@ -132,9 +137,9 @@ export default function BookingPage() {
                     </div>
 
                     {/* Step Titles with Grey Lines */}
-                    <div className="flex justify-between mt-6">
+                    <div className="flex flex-col sm:flex-row sm:justify-between mt-6">
                         {steps.map(step => (
-                            <div key={step.number} className="text-center -mr-4">
+                            <div key={step.number} className="text-center sm:-mr-4 mb-2 sm:mb-0">
                                 <div
                                     className="text-sm font-medium"
                                     style={{ color: currentStep >= step.number ? "#001055" : "#8B95A1" }}
@@ -205,13 +210,13 @@ export default function BookingPage() {
                             {/* Step 2 */}
                             {currentStep === 2 && (
                                 <div className="space-y-6 text-[#001055] text-xl">
-                                    <div className="w-[25rem] h-16">
+                                    <div className="w-full sm:w-[25rem] h-16">
                                         <Label htmlFor="serviceType" className="p-2">Select Service *</Label>
                                         <Select
                                             onValueChange={value => handleInputChange("serviceType", value)}
                                         >
-                                            <SelectTrigger className="w-full h-12 text-gray-900 bg-white/95 backdrop-blur-sm border-gray-100">
-                                                {/* solid background with slight opacity */}
+                                            <SelectTrigger className="w-full h-12 text-gray-900 bg-white border border-gray-100">
+                                                {/* solid background */}
                                                 <SelectValue placeholder="Choose service" />
                                             </SelectTrigger>
                                             <SelectContent className="w-full bg-white text-gray-900">
@@ -264,10 +269,9 @@ export default function BookingPage() {
                                             onValueChange={value =>
                                                 handleInputChange("timeSlot", value)
                                             }
-
                                         >
                                             <SelectTrigger className="border-gray-100 w-[20rem]">
-                                                <SelectValue placeholder="Select time slot" className="w-[25rem] "/>
+                                                <SelectValue placeholder="Select time slot" className="w-[25rem] " />
                                             </SelectTrigger>
                                             <SelectContent>
                                                 {timeSlots.map(slot => (
@@ -348,7 +352,7 @@ export default function BookingPage() {
                                     <ChevronRight className="w-4 h-4 ml-2" />
                                 </Button>
                             ) : (
-                                    <Button onClick={handleSubmit} className="bg-[#001055] text-[#ffff] hover:bg-[#001082">
+                                <Button onClick={handleSubmit} className="bg-[#001055] text-[#ffff] hover:bg-[#001082]">
                                     Book Appointment
                                     <Check className="w-4 h-4 ml-2" />
                                 </Button>
