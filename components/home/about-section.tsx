@@ -45,7 +45,7 @@ export default function AboutPage() {
             <section id="about" className="py-20 bg-secondary">
                 <div className="max-w-[80rem] mx-auto">
                 {/* <div className="max-w-7xl mx-auto px-6 lg:px-2"> */}
-                    <div className="grid lg:grid-cols-2 items-center">
+                    <div className="grid lg:grid-cols-2 items-center mx-4 sm:mx-4 md:mx-0">
                         {/* Left Half: Text + Corporate Card */}
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
@@ -81,19 +81,19 @@ export default function AboutPage() {
                                 initial={{ opacity: 0, x: 50 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 1, delay: 0.3 }}
-                                className="relative w-72 sm:w-80 lg:w-150 mx-auto"
+                                className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-2xl mx-auto"
                             >
-                                <div className="relative bg-gradient-to-br from-[#001055] to-[#001d88] rounded-3xl p-6 shadow-lg">
-                                    <div className="bg-white rounded-xl p-6 space-y-4">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-10 h-10 bg-[#001055] rounded-full flex items-center justify-center">
+                                <div className="relative bg-gradient-to-br from-[#001055] to-[#001d88] rounded-3xl p-4 sm:p-6 shadow-lg">
+                                    <div className="bg-white rounded-xl p-4 sm:p-6 space-y-4">
+                                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                                            <div className="w-10 h-10 bg-[#001055] rounded-full flex items-center justify-center mb-2 sm:mb-0">
                                                 <Briefcase className="w-6 h-6 text-white" />
                                             </div>
                                             <div>
-                                                <h3 className="font-semibold text-[#001055] text-lg">
+                                                <h3 className="font-semibold text-[#001055] text-base sm:text-lg">
                                                     Corporate Details
                                                 </h3>
-                                                <p className="text-gray-500 text-sm">Registered Information</p>
+                                                <p className="text-gray-500 text-xs sm:text-sm">Registered Information</p>
                                             </div>
                                         </div>
 
@@ -101,10 +101,10 @@ export default function AboutPage() {
                                             {details.map((item, index) => (
                                                 <div
                                                     key={index}
-                                                    className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 bg-gray-50 rounded-lg shadow-sm"
+                                                    className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-2 sm:p-3 bg-gray-50 rounded-lg shadow-sm"
                                                 >
-                                                    <span className="font-medium text-gray-700">{item.label}</span>
-                                                    <span className="text-gray-900 font-semibold mt-1 sm:mt-0">
+                                                    <span className="font-medium text-gray-700 text-sm sm:text-base">{item.label}</span>
+                                                    <span className="text-gray-900 font-semibold mt-1 sm:mt-0 text-sm sm:text-base">
                                                         {item.value}
                                                     </span>
                                                 </div>

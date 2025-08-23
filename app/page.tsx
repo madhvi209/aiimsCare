@@ -7,6 +7,7 @@ import FAQSection from "@/components/home/faq-section";
 import CareSection from "@/components/home/care-section";
 import Contact from "../components/home/contact-section";
 import TestimonialsSection from "@/components/home/testimonials-section";
+import CareerPage from "@/components/home/career-section"
 
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
       <CareSection />
       <TestimonialsSection />
       <Contact />
+      <CareerPage/>
     </div>
   );
 }

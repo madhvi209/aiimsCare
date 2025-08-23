@@ -13,7 +13,7 @@ export default function HomePage() {
     ];
 
     return (
-        <section className="relative py-20 lg:py-24 bg-gradient-to-br from-blue-50 to-white overflow-hidden mt-16">
+        <section className="relative py-24 lg:py-24 bg-gradient-to-br from-blue-50 to-white overflow-hidden mt-24 lg:mt-18">
             <div className="container mx-auto px-6 lg:px-12"> {/* Increased left/right margin */}
                 {/* Main grid: left text + right image */}
                 <div className="grid lg:grid-cols-2 gap-16 items-stretch relative">
